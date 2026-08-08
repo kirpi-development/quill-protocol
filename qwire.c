@@ -29,3 +29,4 @@ int send_qwire_header(int sock, uint8_t opcode, uint32_t payload_length) {
     printf("Q-Wire basligi firlatildi! (%d byte)\n", sent_bytes);
     return 0;
 }
+//@Kirpidev
