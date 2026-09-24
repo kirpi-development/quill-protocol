@@ -12,3 +12,4 @@ struct QWireHeader {
     uint16_t checksum;
     };
     #pragma pack(pop)
+    int receive_qwire_response(int sock);
