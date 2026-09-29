@@ -28,12 +28,16 @@ int send_qwire_header(int sock, uint8_t opcode, uint32_t payload_length) {
 
     printf("Q-Wire header sent! (%d byte)\n", sent_bytes);
     return 0;
-
 }
+
+    int send_qwire_message(int sock, uint8_t opcode, uint32_t payload_length, const void *message) {
+        send_qwire_header(sock, opcode, payload_length);
+        send(sock, message, payload_length, 0);
+        return 0;
+    }
 
     int receive_qwire_response(int sock){
             uint8_t incoming_data[1024];
-
     int readed_bytes = recv(sock, incoming_data, sizeof(incoming_data), 0);
     if (readed_bytes < 0) {
         perror("recv failed");
